@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Derecho Civil I (Bienes) - UTEC</title>
+
+    <!-- SEO & Performance -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta name="description" content="Material de apoyo del curso Derecho Civil I (Bienes) — UTEC. Recursos, definiciones y ejercicios sobre patrimonio, derechos reales y modos de adquirir el dominio.">
+    <meta name="theme-color" content="#631d36">
+
+    <!-- Tailwind & Chart.js (deferred for better load behavior) -->
+    <script defer src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        :root {
+            --utec-maroon: #631d36;
+            --utec-gold: #c5a059;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fdfbf7;
+            color: #2d2d2d;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(99, 29, 54, 0.1);
+        }
+
+        .nav-active {
+            border-bottom: 3px solid var(--utec-maroon);
+            color: var(--utec-maroon);
+            font-weight: 600;
+        }
+
+        .sidebar-item:hover {
+            background-color: rgba(99, 29, 54, 0.05);
+        }
+
+        .transition-all {
+            transition: all 0.3s ease;
+        }
+
+        /* accessible skip link & sr-only helper */
+        .sr-only {
+            position: absolute !important;
+            width: 1px; height: 1px;
+            padding: 0; margin: -1px;
+            overflow: hidden; clip: rect(0,0,0,0);
+            white-space: nowrap; border: 0;
+        }
+        .skip-link {
+            position: absolute;
+            left: -999px;
+            top: auto;
+            background: white;
+            padding: 0.5rem 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            z-index: 9999;
+        }
+        .skip-link:focus {
+            left: 8px;
+            top: 8px;
+            width: auto;
+            height: auto;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+        }
+
+        /* small focus-visible style for keyboard users */
+        :focus {
+            outline: 3px solid rgba(99,29,54,0.18);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+<a href="#main-content" class="skip-link sr-only">Saltar al contenido principal</a>
+
+<nav class="bg-white shadow-sm sticky top-0 z-50 border-b border-gray-100" aria-label="Navegación principal">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-between h-16">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 bg-[#631d36] rounded-lg flex items-center justify-center text-white font-bold text-xl">U</div>
+                <span class="font-bold text-gray-800 text-lg hidden md:block">Derecho Civil I: Bienes</span>
+            </div>
+            <div class="flex space-x-8 items-center overflow-x-auto">
+                <!-- nav buttons use data-section and will be wired in JS -->
+                <button data-section="inicio" id="nav-inicio" class="nav-active px-2 py-5 text-sm transition-all" aria-current="page">Inicio</button>
+                <button data-section="unidad1" id="nav-unidad1" class="px-2 py-5 text-sm text-gray-500 hover:text-[#631d36] transition-all">U1: Clasificación</button>
+                <button data-section="unidad2" id="nav-unidad2" class="px-2 py-5 text-sm text-gray-500 hover:text-[#631d36] transition-all">U2: Derechos Reales</button>
+                <button data-section="unidad3" id="nav-unidad3" class="px-2 py-5 text-sm text-gray-500 hover:text-[#631d36] transition-all">U3: Dominio</button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<main id="main-content" class="max-w-7xl mx-auto px-4 py-8" tabindex="-1">
+
+    <!-- SECCION INICIO -->
+    <section id="sec-inicio" class="space-y-8 animate-fade-in">
+        <div class="bg-gradient-to-r from-[#631d36] to-[#8a2b4a] rounded-3xl p-8 md:p-12 text-white shadow-xl relative overflow-hidden">
+            <div class="relative z-10">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Material de Apoyo Didáctico</h1>
+                <p class="text-xl opacity-90 max-w-2xl mb-6">Explora los fundamentos jurídicos de los bienes en El Salvador. Desde el patrimonio hasta los modos de adquirir el dominio.</p>
+                <div class="flex flex-wrap gap-4 items-center">
+                    <span class="bg-white/20 backdrop-blur-md px-4 py-2 rounded-full text-sm font-semibold border border-white/30">Ciclo II - 2026</span>
+                    <span class="bg-white/20 backdrop-blur-md px-4 py-2 rounded-full text-sm font-semibold border border-white/30">4 Unidades Valorativas</span>
+                    <span class="bg-white/20 backdrop-blur-md px-4 py-2 rounded-full text-sm font-semibold border border-white/30">Facultad de Derecho</span>
+                    <span class="bg-amber-400/20 backdrop-blur-md px-4 py-2 rounded-full text-sm font-semibold border border-amber-300/40 text-amber-200">👨‍🏫 Docente: Lic. Marlon Llanes</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+            <div class="space-y-4">
+                <h2 class="text-2xl font-bold text-[#631d36]">Introducción a la Asignatura</h2>
+                <p class="text-gray-600 leading-relaxed">
+                    Esta aplicación interactiva sirve como herramienta de consulta para el curso de <strong>Derecho Civil I (Bienes)</strong> de la Universidad Tecnológica de El Salvador. 
+                    Aquí aprenderás a distinguir entre bienes y cosas, clasificar bienes sujetos de apropiación y comprender los mecanismos legales para resolver conflictos patrimoniales.
+                </p>
+                <div class="p-4 bg-amber-50 border-l-4 border-amber-400 rounded-r-lg">
+                    <p class="text-sm text-amber-800"><strong>Objetivo Clave:</strong> Aplicar el ordenamiento jurídico civil en la solución de controversias patrimoniales entre particulares.</p>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                <h3 class="text-center font-semibold mb-4">Carga Académica (Horas por Ciclo)</h3>
+                <div class="chart-container">
+                    <figure aria-label="Distribución de horas por unidad" class="h-full">
+                        <canvas id="hoursChart" role="img" aria-label="Gráfico de barras: horas por unidad"></canvas>
+                        <figcaption class="sr-only">Horas estimadas: U1 20h, U2 30h, U3 40h</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCION UNIDAD 1 -->
+    <section id="sec-unidad1" class="hidden space-y-8 animate-fade-in">
+        <div class="border-b border-gray-200 pb-4">
+            <h2 class="text-3xl font-bold text-[#631d36]">Unidad 1: El Patrimonio y los Bienes</h2>
+            <p class="text-gray-500 mt-2">Fundamentos de la propiedad y dicotomías legales esenciales.</p>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-6">
+            <div class="lg:col-span-1 space-y-4">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                    <h3 class="font-bold text-lg mb-2 text-[#631d36]">Concepto de Patrimonio</h3>
+                    <p class="text-sm text-gray-600 italic">"Es el conjunto de derechos y obligaciones de una persona apreciables en dinero."</p>
+                    <div class="mt-4 space-y-2">
+                        <div class="flex items-center space-x-2 text-sm">
+                            <span class="text-green-600">✔</span>
+                            <span>Universalidad jurídica</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-sm">
+                            <span class="text-green-600">✔</span>
+                            <span>Atributo de la personalidad</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-[#631d36] p-6 rounded-xl text-white">
+                    <h3 class="font-bold text-lg mb-2">Derechos Reales vs Personales</h3>
+                    <p class="text-xs mb-4">Haz clic para comparar las diferencias clave.</p>
+                    <button data-toggle="comparison" class="w-full py-2 bg-white/10 hover:bg-white/20 border border-white/30 rounded-lg text-sm transition-all">Ver Comparativa</button>
+                </div>
+            </div>
+
+            <div class="lg:col-span-2 bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                <h3 class="font-bold text-lg mb-6">Explorador de Clasificación de Bienes</h3>
+                <p class="text-sm text-gray-500 mb-6">Haz clic en cada categoría para ver su definición y ejemplos según la normativa salvadoreña.</p>
+                
+                <div class="grid sm:grid-cols-2 gap-4" id="tax-container" role="list">
+                    <!-- JS Dynamic Content -->
+                </div>
+                
+                <div id="detail-box" class="mt-8 p-4 bg-gray-50 rounded-lg border border-dashed border-gray-300 hidden" role="region" aria-live="polite" aria-labelledby="detail-title">
+                    <h4 id="detail-title" class="font-bold text-[#631d36]"></h4>
+                    <p id="detail-text" class="text-sm text-gray-600 mt-1"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCION UNIDAD 2 -->
+    <section id="sec-unidad2" class="hidden space-y-8 animate-fade-in">
+        <div class="border-b border-gray-200 pb-4">
+            <h2 class="text-3xl font-bold text-[#631d36]">Unidad 2: Los Derechos Reales</h2>
+            <p class="text-gray-500 mt-2">Poderes jurídicos directos e inmediatos sobre las cosas.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Cards for Derechos Reales -->
+            <div class="bg-white border-t-4 border-[#631d36] p-6 rounded-xl shadow-sm hover:shadow-md transition-all">
+                <div class="text-2xl mb-2">🏘️</div>
+                <h3 class="font-bold text-[#631d36]">Usufructo</h3>
+                <p class="text-sm text-gray-600 mt-2">Derecho a gozar de una cosa ajena con la obligación de conservar su forma y substancia.</p>
+            </div>
+            <div class="bg-white border-t-4 border-amber-500 p-6 rounded-xl shadow-sm hover:shadow-md transition-all">
+                <div class="text-2xl mb-2">🛣️</div>
+                <h3 class="font-bold text-amber-700">Servidumbre</h3>
+                <p class="text-sm text-gray-600 mt-2">Gravamen impuesto sobre un predio en utilidad de otro predio de distinto dueño.</p>
+            </div>
+            <div class="bg-white border-t-4 border-blue-500 p-6 rounded-xl shadow-sm hover:shadow-md transition-all">
+                <div class="text-2xl mb-2">🏠</div>
+                <h3 class="font-bold text-blue-700">Uso y Habitación</h3>
+                <p class="text-sm text-gray-600 mt-2">Derecho de percibir de los frutos de una cosa ajena los que basten a las necesidades del usuario y su familia.</p>
+            </div>
+            <div class="bg-white border-t-4 border-emerald-500 p-6 rounded-xl shadow-sm hover:shadow-md transition-all">
+                <div class="text-2xl mb-2">📜</div>
+                <h3 class="font-bold text-emerald-700">Herencia</h3>
+                <p class="text-sm text-gray-600 mt-2">Derecho real que recae sobre la universalidad de los bienes de una persona difunta.</p>
+            </div>
+            <div class="bg-white border-t-4 border-indigo-500 p-6 rounded-xl shadow-sm hover:shadow-md transition-all">
+                <div class="text-2xl mb-2">🔐</div>
+                <h3 class="font-bold text-indigo-700">Prenda e Hipoteca</h3>
+                <p class="text-sm text-gray-600 mt-2">Derechos de garantía. La prenda sobre muebles y la hipoteca sobre inmuebles.</p>
+            </div>
+            <div class="bg-white border-t-4 border-gray-400 p-6 rounded-xl shadow-sm bg-gray-50 flex items-center justify-center italic text-gray-400 text-sm">
+                Explora el Código Civil Art. 567 y siguientes.
+            </div>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 mt-12">
+            <h3 class="text-xl font-bold mb-6 flex items-center">
+                <span class="w-8 h-8 bg-[#631d36] text-white rounded-full flex items-center justify-center mr-3 text-sm">!</span>
+                Análisis de Oponibilidad
+            </h3>
+            <p class="text-gray-600 mb-6">El derecho real es absoluto, lo que significa que es <strong>oponible a terceros</strong> (erga omnes). A diferencia del derecho personal que solo vincula al acreedor y deudor.</p>
+            <div class="grid sm:grid-cols-2 gap-8">
+                <div class="bg-amber-50 p-6 rounded-xl">
+                    <h4 class="font-bold text-amber-800 mb-2">Poder Directo</h4>
+                    <p class="text-sm text-amber-700">El titular no necesita de la colaboración de nadie para ejercer su derecho sobre la cosa.</p>
+                </div>
+                <div class="bg-blue-50 p-6 rounded-xl">
+                    <h4 class="font-bold text-blue-800 mb-2">Persecución y Preferencia</h4>
+                    <p class="text-sm text-blue-700">Permite perseguir la cosa en manos de quien esté y cobrar con preferencia en caso de garantías.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCION UNIDAD 3 -->
+    <section id="sec-unidad3" class="hidden space-y-8 animate-fade-in">
+        <div class="border-b border-gray-200 pb-4">
+            <h2 class="text-3xl font-bold text-[#631d36]">Unidad 3: El Dominio y Posesión</h2>
+            <p class="text-gray-500 mt-2">La propiedad plena y los caminos legales para obtenerla.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <h3 class="font-bold text-lg mb-6">Modos de Adquirir el Dominio</h3>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                <button data-mode="Ocupación" data-info="Adquisición de cosas que no pertenecen a nadie y cuya adquisición no es prohibida." class="p-4 bg-gray-50 hover:bg-[#631d36] hover:text-white rounded-xl transition-all border border-gray-200 text-sm font-semibold">Ocupación</button>
+                <button data-mode="Accesión" data-info="El dueño de una cosa pasa a serlo de lo que ella produce o de lo que se junta a ella." class="p-4 bg-gray-50 hover:bg-[#631d36] hover:text-white rounded-xl transition-all border border-gray-200 text-sm font-semibold">Accesión</button>
+                <button data-mode="Tradición" data-info="Entrega que el dueño hace de una cosa a otro, habiendo facultad e intención de transferir el dominio." class="p-4 bg-gray-50 hover:bg-[#631d36] hover:text-white rounded-xl transition-all border border-gray-200 text-sm font-semibold">Tradición</button>
+                <button data-mode="Sucesión" data-info="Transmisión de los bienes de una persona difunta a sus herederos o legatarios." class="p-4 bg-gray-50 hover:bg-[#631d36] hover:text-white rounded-xl transition-all border border-gray-200 text-sm font-semibold">Sucesión</button>
+                <button data-mode="Prescripción" data-info="Adquisición de cosas ajenas por haberlas poseído durante cierto tiempo y bajo condiciones legales." class="p-4 bg-gray-50 hover:bg-[#631d36] hover:text-white rounded-xl transition-all border border-gray-200 text-sm font-semibold">Prescripción</button>
+            </div>
+            <div id="modo-info" class="mt-6 p-6 bg-amber-50 rounded-xl border border-amber-100 min-h-[100px] flex flex-col justify-center" role="region" aria-live="polite">
+                <p class="text-amber-800 text-center italic">Selecciona un modo para ver su descripción legal.</p>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                <h3 class="font-bold text-[#631d36] mb-4">La Posesión</h3>
+                <p class="text-sm text-gray-600 mb-4">Es la tenencia de una cosa determinada con ánimo de señor o dueño.</p>
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <span class="text-[#631d36] mr-2">●</span>
+                        <div class="text-sm"><strong>Regular:</strong> Procede de justo título y ha sido adquirida de buena fe.</div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-[#631d36] mr-2">●</span>
+                        <div class="text-sm"><strong>Irregular:</strong> Si le falta uno o más de los requisitos de la regular.</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="bg-[#631d36] p-6 rounded-xl text-white shadow-lg">
+                <h3 class="font-bold mb-4">Acciones Posesorias</h3>
+                <p class="text-sm opacity-90 mb-4">Mecanismos de protección para conservar o recuperar la posesión de bienes raíces o derechos reales constituidos en ellos.</p>
+                <div class="bg-white/10 p-4 rounded-lg border border-white/20 text-xs leading-relaxed">
+                    "Las acciones posesorias prescriben al cabo de un año completo, contado desde el acto de molestia o despojo." (Art. 918 C.C.)
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison panel (replaces alert) -->
+    <div id="comparison-panel" class="hidden fixed bottom-6 right-6 max-w-sm w-full bg-white p-4 rounded-lg shadow-lg border border-gray-200" role="region" aria-live="polite" aria-hidden="true">
+        <div class="flex justify-between items-start">
+            <div>
+                <h4 class="font-bold text-[#631d36]">Comparativa: Derecho Real vs Derecho Personal</h4>
+                <p class="text-sm text-gray-700 mt-2">
+                    <strong>Derecho Real:</strong> Relación persona‑cosa (directo), oponible a terceros.<br>
+                    <strong>Derecho Personal:</strong> Relación persona‑persona (obligación), eficaz únicamente entre las partes.
+                </p>
+            </div>
+            <button id="close-compare" class="ml-4 text-gray-400 hover:text-gray-600" aria-label="Cerrar comparativa">✕</button>
+        </div>
+    </div>
+
+</main>
+
+<footer class="bg-white border-t border-gray-200 py-12 mt-20">
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8">
+        <div>
+            <h4 class="font-bold text-[#631d36] mb-4">Universidad Tecnológica de El Salvador</h4>
+            <p class="text-sm text-gray-500">Facultad de Derecho. Programa Ciclo II-2026. Material diseñado para innovación docente.</p>
+            <p class="text-sm font-medium text-[#631d36] mt-2"><strong>Docente:</strong> Lic. Marlon Llanes</p>
+        </div>
+        <div>
+            <h4 class="font-bold text-gray-800 mb-4">Recursos Digitales</h4>
+            <ul class="text-sm text-gray-500 space-y-2">
+                <li>• <a href="https://biblioteca.utec.edu.sv/web/" class="hover:text-[#631d36]">Biblioteca UTEC</a></li>
+                <li>• <a href="https://www.utecvirtual.edu.sv" class="hover:text-[#631d36]">UTEC Virtual</a></li>
+                <li>• <a href="#" class="hover:text-[#631d36]">Código Civil de El Salvador</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-bold text-gray-800 mb-4">Metodología</h4>
+            <div class="flex items-center space-x-4">
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-[#631d36]">40%</div>
+                    <div class="text-[10px] uppercase text-gray-400">Teoría</div>
+                </div>
+                <div class="h-8 w-px bg-gray-200"></div>
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-amber-500">60%</div>
+                    <div class="text-[10px] uppercase text-gray-400">Práctica</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Data Storage
+    const clasificaciones = [
+        { title: "Corporales vs Incorporales", text: "Corporales tienen un ser real y pueden ser percibidas por los sentidos. Incorporales consisten en meros derechos." },
+        { title: "Muebles vs Inmuebles", text: "Muebles pueden transportarse de un lugar a otro. Inmuebles (fincas o raíces) no pueden transportarse." },
+        { title: "Fungibles vs No Fungibles", text: "Fungibles pueden ser reemplazados por otros de igual calidad (dinero). No fungibles son piezas únicas." },
+        { title: "Consumibles vs No Consumibles", text: "Consumibles se destruyen por su primer uso legal o natural. No consumibles permiten uso reiterado." },
+        { title: "Singulares vs Universales", text: "Singulares constituyen una sola unidad. Universales son agrupaciones de bienes (herencia, biblioteca)." },
+        { title: "Principales vs Accesorios", text: "Principales pueden subsistir por sí solos. Accesorios necesitan de un principal para existir." }
+    ];
+
+    // Initialization on DOMContentLoaded for better UX & predictable timing with deferred scripts
+    document.addEventListener('DOMContentLoaded', () => {
+        renderHoursChart();
+        renderTaxonomy();
+        wireNav();
+        wireModeButtons();
+        wireComparison();
+    });
+
+    // Navigation Logic
+    function wireNav() {
+        const sections = ['inicio', 'unidad1', 'unidad2', 'unidad3'];
+        document.querySelectorAll('[data-section]').forEach(btn => {
+            btn.addEventListener('click', () => showSection(btn.dataset.section));
+            btn.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); showSection(btn.dataset.section); }
+            });
+        });
+        // ensure initial state: show 'inicio'
+        showSection('inicio', {skipFocus: true});
+    }
+
+    function showSection(sectionId, opts = {}) {
+        const sections = ['inicio', 'unidad1', 'unidad2', 'unidad3'];
+        sections.forEach(id => {
+            const secEl = document.getElementById(`sec-${id}`);
+            const navBtn = document.getElementById(`nav-${id}`);
+            if (!secEl || !navBtn) return;
+            if (id === sectionId) {
+                secEl.classList.remove('hidden');
+                navBtn.classList.add('nav-active');
+                navBtn.classList.remove('text-gray-500');
+                navBtn.setAttribute('aria-current', 'page');
+                // accessibility: focus section for keyboard users
+                if (!opts.skipFocus) {
+                    secEl.setAttribute('tabindex', '-1');
+                    secEl.focus({preventScroll:true});
+                }
+            } else {
+                secEl.classList.add('hidden');
+                navBtn.classList.remove('nav-active');
+                navBtn.classList.add('text-gray-500');
+                navBtn.removeAttribute('aria-current');
+            }
+        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Chart Logic
+    function renderHoursChart() {
+        const canvas = document.getElementById('hoursChart');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        // Defensive: Chart may not be loaded in some async scenarios
+        if (typeof Chart === 'undefined') {
+            // Try again shortly if Chart isn't available yet
+            setTimeout(renderHoursChart, 100);
+            return;
+        }
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['U1: Patrimonio', 'U2: D. Reales', 'U3: Dominio'],
+                datasets: [{
+                    label: 'Horas Estimadas',
+                    data: [20, 30, 40],
+                    backgroundColor: ['#631d36', '#c5a059', '#8a2b4a'],
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: { beginAtZero: true, grid: { display: false } },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+    }
+
+    // Taxonomy Explorer Logic
+    function renderTaxonomy() {
+        const container = document.getElementById('tax-container');
+        container.innerHTML = '';
+        clasificaciones.forEach((item, index) => {
+            const btn = document.createElement('button');
+            btn.setAttribute('role', 'listitem');
+            btn.className = "text-left p-4 rounded-lg border border-gray-100 hover:border-[#631d36] hover:bg-gray-50 transition-all text-sm font-medium flex justify-between items-center group";
+            btn.innerHTML = `
+                <span>${item.title}</span>
+                <span class="text-gray-300 group-hover:text-[#631d36]">→</span>
+            `;
+            btn.onclick = () => {
+                const detailBox = document.getElementById('detail-box');
+                detailBox.classList.remove('hidden');
+                document.getElementById('detail-title').innerText = item.title;
+                document.getElementById('detail-text').innerText = item.text;
+                // Move focus to detail box so assistive tech knows content changed
+                detailBox.setAttribute('tabindex', '-1');
+                detailBox.focus();
+            };
+            container.appendChild(btn);
+        });
+    }
+
+    // Mode buttons wiring (Unidad 3)
+    function wireModeButtons() {
+        document.querySelectorAll('[data-mode]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const title = btn.getAttribute('data-mode') || 'Modo';
+                const info = btn.getAttribute('data-info') || '';
+                showModo(title, info);
+            });
+            btn.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); btn.click(); }
+            });
+        });
+    }
+
+    // Modal/Panel Interaction for modos
+    function showModo(title, info) {
+        const box = document.getElementById('modo-info');
+        box.innerHTML = `
+            <h4 class="font-bold text-[#631d36] text-lg mb-2">${title}</h4>
+            <p class="text-sm text-gray-700 leading-relaxed">${info}</p>
+        `;
+        box.classList.remove('bg-amber-50');
+        box.classList.add('bg-white', 'border-l-4', 'border-[#631d36]');
+        box.setAttribute('tabindex', '-1');
+        box.focus();
+    }
+
+    // Comparison panel wiring (replaces alert)
+    function wireComparison() {
+        const toggle = document.querySelector('[data-toggle="comparison"]');
+        const panel = document.getElementById('comparison-panel');
+        const closeBtn = document.getElementById('close-compare');
+        if (toggle) {
+            toggle.addEventListener('click', toggleComparison);
+            toggle.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle.click(); }
+            });
+        }
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                panel.classList.add('hidden');
+                panel.setAttribute('aria-hidden', 'true');
+            });
+        }
+    }
+
+    function toggleComparison() {
+        const panel = document.getElementById('comparison-panel');
+        if (!panel) return;
+        const isHidden = panel.classList.contains('hidden');
+        if (isHidden) {
+            panel.classList.remove('hidden');
+            panel.setAttribute('aria-hidden', 'false');
+            panel.setAttribute('tabindex', '-1');
+            panel.focus();
+        } else {
+            panel.classList.add('hidden');
+            panel.setAttribute('aria-hidden', 'true');
+        }
+    }
+
+</script>
+</body>
+</html>
